@@ -1,123 +1,68 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My shope</title>
-        <link rel="stylesheet" href="style.css">
+
+        <title>My super shop.</title>
+
     </head>
     <body>
-        <div class="store"></div>
-        <script src="https://unpkg.com/supersimpledev/react.js"></script>
-        <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
-        <script src="https://unpkg.com/supersimpledev/babel.js"></script>
-        <script type="text/babel">
+            <div class="store"></div>
 
-        const Header =(
-            <div className='header'>
-                <h1>My Super Shop 🛍️</h1>
-                <p>All kinds of product avalable here.Best Prices guaranteed!</p>
-            </div>
+            <script src="https://unpkg.com/supersimpledev/react.js"></script>
+            <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+            <script src="https://unpkg.com/supersimpledev/babel.js"></script>
 
-        );
+            <script type="text/babel">
 
-        const T_shirt=(
-            
-            <div className="product">
-            <h1>POLO T-shirt.</h1>
-            <h5>Category:T_shirt</h5>
-            <p>Price:$80.</p>
-            <p>stock:50pic.</p>
-            <button onClick={()=>alert('POLO T-shirt Added 🛒')}>Add to T-shirt</button>
-            
-            </div>
-           );
+                function Header()
+                {
+                    return(
+                        <div>
+                            <h1>My Super Shop 🛍️</h1>
+                            <p>Best prices guaranteed!</p> 
+                        </div>
+                    );
+                }
 
-           const Phone=(
-            
-            <div className="product">
-            <h1>iPhone</h1>
-            <h5>Category: Phone</h5>
-            <p>Original Price:$800.</p>
-            <p>Discount Price:$650.</p>
-            <p>stock:100pic.</p>
-            <button onClick={()=>alert('iPhone Added 🛒')}>Add to iPhone</button>
-            
-            </div>
-           );
-           const Book=(
-            
-            <div className="product">
-            <h1>Story Books.</h1>
-             <h5>Category: Book</h5>
-            <p>Price:$10.</p>
-            <p>stock:00pic.</p>
-            <button onClick={() => alert('Sorry! Out of Stock 😢')}>Out of Stock</button>
-            
-            </div>
-           );
+                function Product({name,category,price}){
+                    return(
+                        <div>
+                            <h1>{name}</h1>
+                            <p>Category:{category}</p>
+                            <p>Price:{price}</p>
+                            <button onClick={()=>alert(name + ' Added to Cart! 🛒')}>
+                                Add to Cart
+                            </button>    
+                        </div>
 
-           const Laptop=(
-            <div className="product">
-                <h1>Lenovo</h1>
-                 <h5>Category: Laptop</h5>
-                <p>Price:$500</p>
-                <p>stock:9</p>
-                <button onClick={()=>alert('Laptop Added 🛒')}>Add to Laptop</button>
+                    );
+                }
 
-            </div>
-           );
-           const Shoes=(
-            <div className="product">
-                <h1>Steps</h1>
-                 <h5>Category: Shoe</h5>
-                <p>Price: $10</p>
-                <p>stock:10pair</p>
-                <button onClick={()=>alert('Added Shoes ')}>Add to Shoes</button>
+                function Footer(){
+                    return(
+                        <div>
+                            <p>2026 My Shop. All rights reserved.</p>
+                        </div>
+                    );
+                }
+
+                const productList = (
+                     <div>
+                        <Header />
+                        <Product name="T-Shirt" category="Clothing" price="$80" />
+                        <Product name="iPhone" category="Phone" price="$800" />
+                        <Product name="Laptop" category="Electronics" price="$500" />
+                        <Product name="Bag" category="Hand Bag" price="$10" />
+                        <Product name="watch" category="Rolex" price="$600" />
+                        <Product name="Shirt" category="Clothing" price="$50" />
+                        <Footer />
+                    </div>
+
+                );
                 
-            </div>
-           );
-
-           const Watch=(
-            <div className="product">
-                <h1>Rolex</h1>
-                 <h5>Category: Watch</h5>
-                <p>price:$900</p>
-                <p>Stock:50pics</p>
-                <button onClick={()=>alert('Added Watch ')}>Added to Watch</button>
-            </div>
-           );
-           const Bag=(
-            <div className="product">
-            <h1>Hand Bag</h1>
-            <h5>Category: Bag</h5>
-            <p>Price:$200</p>
-            <p>stock:60pic</p>
-            <button onClick={()=>alert('Added Bag')}>Added to Bag</button>
-            </div>
-           );
- 
-           const Footer =(
-            <div className='footer'>
-            <p>2026 My Shop. All rights reserved.</p>    
-            </div>
-           );
-
-
-        const mycontainer=document.querySelector('.store');
-        ReactDOM.createRoot(mycontainer).render(
-                <div className='wrapper'>
-                    {Header}
-                    {T_shirt}
-                    {Phone}
-                    {Book}
-                    {Laptop}
-                    {Shoes}
-                    {Watch}
-                    {Bag}
-                    {Footer}
-                </div>
-
-        );
-        </script>
+            const container = document.querySelector('.store');
+            ReactDOM.createRoot(container).render(productList);
+            </script>
 
     </body>
 </html>

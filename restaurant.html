@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Restaurant</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="item"></div>
+
+            <script src="https://unpkg.com/supersimpledev/react.js"></script>
+            <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+            <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+            <script type="text/babel">
+                 
+                function Header(){
+                    return(
+                        <div className="header">
+                            <h1>This is my new restaurant</h1>
+                            <p>Enjoy your food for best price.</p>    
+                        </div>
+                    );
+                }
+
+                function FoodItems({name,category,price}){
+                    return(
+                        <div className="fooditem">
+                            <h1>{name}</h1>
+                            <p>Category:{category}</p>
+                            <p>Price:{price}</p>
+                            <button onClick={()=>alert(name + " order confirmed")}>Order Now</button>
+                        </div>
+                    );
+                }
+
+
+                function Footer(){
+                    return(
+                        <div className="footer">
+                            <p>Select your food.</p>
+                        </div>
+                    );
+                }
+
+             const foodList =(
+                        <div className="wrapper">
+                                <Header />
+                                <FoodItems name= "Biriyani" category= "Rice" price= '$5'/>
+                                <FoodItems name= "Burger" category= "Fast Food" price= "$3" />
+                                <FoodItems name= "Pizza" category= "Italian" price= '$8'/>
+                                <FoodItems name= "Pasta" category= "Italian" price= "$6" />
+                                <FoodItems name="Fried Rice" category="Rice" price="$4" />
+                                <FoodItems name="Noodles" category="Chinese" price="$5" />
+                                <Footer />
+                
+                        </div>);    
+
+              const container = document.querySelector('.item');
+              ReactDOM.createRoot(container).render(foodList);
+
+
+            </script>
+    
+    </body>
+</html>

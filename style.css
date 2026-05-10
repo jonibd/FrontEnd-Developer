@@ -1,79 +1,58 @@
-
-button {
-    background: green;
-    color: white;
-    padding: 8px 16px;
+body {
+    background: teal; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  
+}
+.fooditem h1 {
+    font-size: 20px;
+    margin: 0 0 8px 0;
+}
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     border: none;
+    box-shadow: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+   
+}
+.header{
+    width: 100%;
+    background: orangered;
+    color:rgb(242, 250, 250);
+    text-align: center;
+    padding: 30px;
+
+}
+.fooditem{
+    width: 200px;
+    background: greenyellow;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(8, 8, 8, 0.1);
+    padding: 15px;
+    margin: 10px;
+}
+.footer {
+    width: 100%;
+    background: #ec0808e1;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+button {
+    background: #208bac;
+    color: black;
+    border: none;
+    padding: 8px 16px;
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
     margin-top: 10px;
 }
-
 button:hover {
-    background: coral;
-}
-
-
-p {
-    color: black;
-    font-size: 14px;
-    margin: 5px 0;
-}
-
-h1{
-    color: blue;
-
-}
-div {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-    background: rgb(160, 160, 12);
-    display:inline-block;
-    padding: 15px;
-    margin: 10px;
-}
-.product {
-    background: cadetblue;
-    display: inline-block;
-    width: 270px;
-    vertical-align: top;
-    text-align: left;
-}
-.header {
-    background-color: rgb(43, 236, 130);
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    padding: 15px;
-    box-sizing: border-box;
-}
-
-.footer {
-    background-color: aqua;
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    padding: 15px;
-    box-sizing: border-box;
-}
-.wrapper {
-    background: none;
-    border: none;
-    box-shadow: none;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.store {
-    
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
-}
-body {
-    background: #f0f0f0;
+    background: #6c2bc0;
 }
