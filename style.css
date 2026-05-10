@@ -1,0 +1,79 @@
+
+button {
+    background: green;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: coral;
+}
+
+
+p {
+    color: black;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+h1{
+    color: blue;
+
+}
+div {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    background: rgb(160, 160, 12);
+    display:inline-block;
+    padding: 15px;
+    margin: 10px;
+}
+.product {
+    background: cadetblue;
+    display: inline-block;
+    width: 270px;
+    vertical-align: top;
+    text-align: left;
+}
+.header {
+    background-color: rgb(43, 236, 130);
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.footer {
+    background-color: aqua;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.wrapper {
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.store {
+    
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+body {
+    background: #f0f0f0;
+}
