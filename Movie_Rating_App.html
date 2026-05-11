@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Movie Rating App</title>
+    </head>
+    <body>
+        <div class="App"></div>
+
+         <script src="https://unpkg.com/supersimpledev/react.js"></script>
+         <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+         <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    
+         <script type="text/babel">
+
+
+            function Movie({title,genre,rating,year}){
+                return(     <div>
+                            <p>Title:{title}</p>
+                            <p>Genre:{genre}</p>
+                            <p>Rating:{rating}</p>
+                            <p>Year:{year}</p>
+                            <p>{rating>=8 ? "Must Watch!":"Good"}</p>
+
+                            <button onClick={()=>alert(title + "Watching")}>Watch</button>
+                            </div>
+                );
+            }
+
+            const movies = [
+                    { title: "Avengers", genre: "Action", rating: 8.5, year: 2019 },
+                    { title: "Titanic", genre: "Romance", rating: 7.8, year: 1997 },
+                    { title: "Inception", genre: "Sci-Fi", rating: 9.2, year: 2010 },
+                    { title: "Joker", genre: "Drama", rating: 6.5, year: 2019 },
+                ];
+                
+            const container =document.querySelector('.App');
+            ReactDOM.createRoot(container).render(
+                <div>
+                    <h1>Movie Rating App</h1>
+                     {
+                        movies.map((movie,index)=>(
+                            <div key={index}>
+                            <Movie
+                                title={movie.title}  
+                                genre={movie.genre}
+                                rating={movie.rating}  
+                                year={movie.year}
+                                />
+                            </div>
+                        ))}
+                </div>
+           );
+         </script>
+
+    </body>
+</html>

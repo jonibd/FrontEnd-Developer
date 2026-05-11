@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Studdent info... </title>
+    </head>
+    <body>
+        <div class="info"></div>
+            <script src="https://unpkg.com/supersimpledev/react.js"></script>
+            <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+            <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+          
+            <script type="text/babel">
+
+                function Student({name,subject,marks})
+                {
+                    return(
+                        <div>
+                            <p>Name:{name} </p>
+                            <p>Subject:{subject}</p>
+                            <p>Marks:{marks}</p>
+                            <p>{
+                                marks >= 50 ? "Pass" : "Fail"
+                            }</p>
+                        </div>
+                    );
+                }
+
+                const students = [
+                        { name: "Rahim", subject: "Math", marks: 85 },
+                        { name: "Karim", subject: "Science", marks: 45 },
+                        { name: "Jamal", subject: "English", marks: 72 },
+                        { name: "Sadia", subject: "Math", marks: 30 },
+                        ];
+                const container= document.querySelector('.info');
+                ReactDOM.createRoot(container).render(
+                                <div>
+                                     <h1>Student info</h1>
+                                    {
+                                     students.map((infor,index)=>(
+                                     <Student 
+                                            key={index}
+                                            name={infor.name}
+                                            subject={infor.subject}
+                                            marks={infor.marks}
+                                    />))
+                                    }
+                                </div>);
+             </script>
+    </body>
+</html>

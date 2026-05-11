@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Gadget Shop</title>
+    </head>
+    <body>
+        <div class="stor"></div>
+         <script src="https://unpkg.com/supersimpledev/react.js"></script>
+         <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+         <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+         
+         <script type="text/babel">
+
+            function Product({name,price,stock}){
+                return(
+
+                   <div>
+                    
+                    <p>{name}</p>
+                    <p>Price:${price}</p>
+                    <button onClick={()=>alert(name + " Added")}>
+                    {stock > 0 ?  "Add to Cart": "Out of Stock" }
+                    </button>
+                    </div> );
+            }
+           
+            const products = [
+                    { name: "iPhone", price: 800, stock: 0 },
+                    { name: "Laptop", price: 500, stock: 5 },
+                    { name: "Watch", price: 200, stock: 0 },
+                    { name: "Bag", price: 50, stock: 10 },
+            ];
+
+           
+        
+            const container = document.querySelector('.stor');
+            ReactDOM.createRoot(container).render( 
+                <div>
+                    <h1>Choose you Products.</h1>
+                {
+                    products.map((product,index)=>(
+                    <Product
+                        key={index}
+                        name={product.name}
+                        price={product.price}
+                        stock={product.stock}/>
+                ))
+            }</div>);
+         </script>
+    
+    
+        </body>
+</html>
