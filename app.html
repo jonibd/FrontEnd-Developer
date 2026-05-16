@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Chatbot Project..</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+     <body>
+        <div class="app"></div>
+           
+        <script src="https://unpkg.com/supersimpledev/react.js"></script>
+        <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+        <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+        
+         <script type="text/babel">
+
+            function Chatbot(){
+                // প্রথম মেসেজটিকেও অবজেক্ট আকারে ফিক্স করা হলো যাতে স্ক্রিনে লেখাটি দেখায়
+                const [messages, setMessages] = React.useState([
+                    { text: "Hello! How can I help you? 🤖", sender: "bot" }
+                ]);
+                const [input, setInput] = React.useState("");
+                const [replyIndex, setReplyIndex] = React.useState(0);
+
+                const botReplies = [
+                    "I got your message! 🤖",
+                    "How can I help you? 😊",
+                    "Sure! Tell me more.",
+                    "Interesting! 🤔",
+                    "I understand!",
+                ];
+
+                function sendMessage(){
+                    if(input.trim() === "")
+                        return;
+                    
+                    const userMessage = { text: input, sender: "user" };
+                    setMessages(prev => [...prev, userMessage]);
+                    setInput("");
+                       
+                    setTimeout(() => {
+                        setReplyIndex(prevIndex => {
+                            const currentReply = botReplies[prevIndex % botReplies.length];
+                            
+                            setMessages(prevMessages => [
+                                ...prevMessages, 
+                                { text: currentReply, sender: "bot" }
+                            ]);
+                            
+                            return prevIndex + 1; 
+                        });
+                    }, 100);
+                }
+
+                return(
+                    <div className="Chatbot">
+                        <h1 className="chatbot-header">My Chatbot 🤖</h1>
+                        <div className="messages">
+                            {messages.map((msg, index) => (
+                                <p key={index}
+                                   className={`message ${msg.sender === 'user' ? 'user-message' : 'bot-message'}`}>
+                                    {msg.text}
+                                </p>
+                            ))}
+                        </div>
+                        <div className="input-area">
+                            <input className="input-box"
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                placeholder="Type a message..."
+                            />
+                            <button className="send-btn" onClick={sendMessage}>Send</button> 
+                        </div>
+                    </div>
+                );
+            }
+            const container = document.querySelector('.app');
+            ReactDOM.createRoot(container).render(<Chatbot />);
+         </script>
+     </body>
+</html>

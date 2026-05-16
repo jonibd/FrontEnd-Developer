@@ -1,64 +1,103 @@
-body{
-    background: bisque;
+body {
+    background: #F4EAE1; 
+    font-family: Arial, sans-serif; 
     margin: 0;
     padding: 0;
 }
-.wrapper {
-    max-width: 1000px;
+
+
+.Chatbot {
+    width: 600px;
     margin: 0 auto;
-    padding: 20px;
-}
-.cart-header {
-    background: #333;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    border-radius: 10px;
-}
-.product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.product-card{
-
+    margin-top: 50px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    border-radius: 15px; 
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08); 
+    overflow: hidden; 
+}
+
+.chatbot-header {
+    background: #128C7E; 
+    color: white;
     padding: 15px;
-    margin: 10px;
-    width: 200px;
-}
-.product-name{
-    color: #000;
+    margin: 0; 
+    text-align: center;
+    font-size: 20px;
 }
 
-.product-category{
-    color: #000;
-}
-.product-price{
-    color: black;
-}
-.btn{
-    border: none;
-    color: white;
-    height: 30px;
-    width: 100%;
-    background-color:rgb(34, 212, 64);
-    cursor:pointer;
-    margin-top: 10px;
-    padding: 8px 16px;
-    border-radius: 5px;
 
+.messages {
+    height: 400px;
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    padding: 15px;
+    background: #f5f5f5; 
 }
-.clear-btn {
-    background: red;
+
+
+.message {
+    padding: 10px 14px;
+    margin: 8px 0;
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05); 
+    width: fit-content;  
+    max-width: 70%;      
+    word-wrap: break-word;
+}
+
+
+.user-message {
+    background: #DCF8C6; 
+    margin-left: auto;  
+}
+
+
+.bot-message {
+    background: white; 
+    margin-right: auto;  
+}
+
+
+.input-area {
+    display: flex;
+    padding: 15px;
+    background: white;
+    gap: 10px;
+    align-items: center;
+    border-top: 1px solid #eee; 
+}
+
+
+.input-box {
+    flex: 1; 
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    transition: all 0.3s ease; 
+}
+
+
+.input-box:focus {
+    border-color: #7B2CBF; 
+    box-shadow: 0 0 0 4px rgba(123, 44, 191, 0.2); 
+}
+
+
+.send-btn {
+    padding: 12px 24px;
+    background: #128C7E;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 8px; 
     cursor: pointer;
-    display: block;
-    margin: 20px auto;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background 0.2s;
 }
 
+
+.send-btn:hover {
+    background: #0b665c;
+}
