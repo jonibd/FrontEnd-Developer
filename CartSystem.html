@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cart System </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="stor"></div>
+        
+        <script src="https://unpkg.com/supersimpledev/react.js"></script>
+        <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+        <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+        <script type="text/babel">
+
+
+                function Product({name,category,price,stock,onAdd}){
+                         
+                    return(
+                 
+                        <div className="product-card">
+                        <h1 className="product-name">{name}</h1>
+                        <h2 className="product-category">Category:{category}</h2>
+                        <p className="product-price">Price:${price}</p>
+                        <p>Stock:{stock}</p>
+                        <button className={stock > 0 ? "btn" : "btn-out"}> {stock > 0 ? "Add to Cart 🛒" : "Out of Stock ❌"}</button>
+                        </div>
+                    );
+
+                    }
+
+                function Shop()
+                            {
+                                const [cartCount,setCartCount]=React.useState(0);
+                                return(
+                                    <div className="wrapper">
+                                    <h1 className="cart-header">Cart:{cartCount} items</h1>
+                                    <div className="product-list">
+                                    <Product name='Shirt' category='coloth'price={30} stock={50} onAdd={() => setCartCount(cartCount + 1)}/>
+                                    <Product name='T-shirt' category='coloth'price={20} stock={10} onAdd={() => setCartCount(cartCount + 1)}/>
+                                    <Product name='Laptop' category='electronic'price={600} stock={3} onAdd={() => setCartCount(cartCount + 1)}/>
+                                    <Product name='iPhone' category='Phone'price={1500} stock={0} onAdd={() => setCartCount(cartCount + 1)}/>
+                                    <Product name='Watch' category='Watch'price={500} stock={50} onAdd={() => setCartCount(cartCount + 1)}/>
+                                    <Product name='Bag' category='Bag'price={200} stock={14} onAdd={() => setCartCount(cartCount + 1)}/>
+                                    </div>
+                                    <button  className="clear-btn" onClick={() => setCartCount(0)}>Clear Cart</button>
+                                    </div>
+                                );
+                            }
+                            
+
+
+
+            const container = document.querySelector('.stor');
+            ReactDOM.createRoot(container).render(<Shop />);
+
+        </script>
+       
+
+
+    </body>
+</html>

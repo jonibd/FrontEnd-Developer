@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>JSX Practice</title>
+        <title>useState Practice</title>
     </head>
     <body>
-        <div class="app"></div>
-
+        <div class="App"></div>
         <script src="https://unpkg.com/supersimpledev/react.js"></script>
         <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
         <script src="https://unpkg.com/supersimpledev/babel.js"></script>
-
+         
         <script type="text/babel">
-          
-            const foods = [
-                            {name:"Biriyani", price:20},
-                            {name:"Burger",price:10},
-                            {name:"Pizza",price:15},
-                            {name:"Pasta",price:5},
-                        ];
 
-            const container = document.querySelector('.app');
-            ReactDOM.createRoot(container).render(
-          <div>
-            <h1>Choose Your foods</h1>
-            {foods.map((food,index) =>(
-                <div key={index}>
-                 
-                <p>{food.name}</p>
-                <p>Price:{food.price}</p>
-                <button onClick={()=>alert(food.name + " added")}>Order Now</button>
-                </div>
-
-            ))
+            function Counter(){
+                
+                const [battery, setBattery]= React.useState(100);
+                return(
+                        <div>
+                        <p>Battery:{battery}</p>
+                        <button onClick={()=> setBattery(battery<100? battery+10:100)}>Charge</button>
+                        <button onClick={()=>setBattery(battery >0? battery-10:0)}>Use</button>
+                        <button onClick={()=>setBattery(100)}>Reset</button>
+                        <p>{battery >= 80? "Full": battery >= 50 ? "Good 🟡" : battery >= 20 ? "Low 🟠" : "Critical! 🔴"}</p>
+                       
+                        
+                        </div>
+                
+                );
             }
-        
-        
-        </div>
-        );
+
+        const container = document.querySelector('.App'); 
+        ReactDOM.createRoot(container).render(<Counter />);
+
+
+
+
+
+
         </script>
+
     </body>
 </html>
